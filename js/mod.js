@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The Concrete Tree",
 	id: "ukskilogrammbetounikaheeuroeest",
 	author: "OrangeSucculenc",
-	pointsName: "Concrete",
+	pointsName: "concrete",
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
@@ -12,14 +12,16 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Technically a version",
+	num: "0.1",
+	name: "Actual Upgrades Edition",
 }
 
-let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
+let changelog = `<h1>Changelog:</h1><br><br>
+	<h3>v0.1 "Actual Upgrades Edition"</h3><br>
+		- Added a few upgrades to factories.<br><br>
+	<h3>v0.0 "Technically An Update"</h3><br>
 		- Added concrete.<br>
-		- Added a button.`
+		- Added factories.`
 
 let winText = `Congratulations! You have aquired a monopoly over literally everything using only the power of concrete.`
 
@@ -42,6 +44,18 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('f', 11)) gain = gain.times(2)
+	if (hasUpgrade('f', 12)) gain = gain.times(upgradeEffect('f', 12))
+
+
+	if (hasUpgrade('f', 21)) gain = gain.times(2)
+	if (hasUpgrade('f', 22)) gain = gain.times(upgradeEffect('f', 22))
+
+
+	if (hasUpgrade('f', 31)) gain = gain.times(2)
+	if (hasUpgrade('f', 32)) gain = gain.times(upgradeEffect('f', 22))
+
+
 	return gain
 }
 
